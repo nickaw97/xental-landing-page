@@ -109,7 +109,7 @@ function LandingPage() {
               {!isLoading && <ArrowRight className="w-4 h-4 text-white flex-shrink-0" />}
             </button>
           </form>
-          </form>        ) : (
+        ) : (
           <motion.div
             className="flex items-center justify-center gap-3 text-teal-400 text-lg"
             initial={{ opacity: 0, scale: 0.8 }}
