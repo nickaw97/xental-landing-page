@@ -89,7 +89,7 @@ function LandingPage() {
         {!isSubmitted ? (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative group">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-focus-within:text-teal-400 transition-colors z-10" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-focus-within:text-teal-400 transition-colors z-10 pointer-events-none" />
               <input
                 type="email"
                 value={email}
@@ -100,15 +100,15 @@ function LandingPage() {
                 disabled={isLoading}
               />
             </div>
-            <MagneticButton
-              className="px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg disabled:opacity-50"
+            <button
+              type="submit"
               disabled={isLoading}
+              className="px-6 sm:px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg disabled:opacity-50 whitespace-nowrap min-w-[140px] hover:from-teal-600 hover:to-teal-700 transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              <span className="flex items-center gap-2">
-                {isLoading ? 'Joining...' : buttonText}
-                {!isLoading && <ArrowRight className="w-4 h-4" />}
-              </span>
-            </MagneticButton>
+              <span className="text-white font-semibold">{isLoading ? 'Joining...' : buttonText}</span>
+              {!isLoading && <ArrowRight className="w-4 h-4 text-white flex-shrink-0" />}
+            </button>
+          </form>
           </form>        ) : (
           <motion.div
             className="flex items-center justify-center gap-3 text-teal-400 text-lg"

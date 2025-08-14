@@ -54,11 +54,11 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       whileHover={{ scale: disabled ? 1 : 1.05 }}
       whileTap={{ scale: disabled ? 1 : 0.95 }}
     >
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 text-white font-semibold">{children}</span>
       
       {/* Animated background gradient */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-teal-500 to-purple-600"
+        className="absolute inset-0 bg-gradient-to-r from-teal-500 to-purple-600 -z-10"
         animate={{
           x: position.x * 2,
           y: position.y * 2,
