@@ -173,6 +173,7 @@ function LandingPage() {
                     src="/xental logo copy 3.png" 
                     alt="Xental Logo"
                     className="w-20 h-20 md:w-24 md:h-24 filter brightness-0 invert"
+                    onError={(e) => console.error('Logo failed to load:', e)}
                   />                </motion.div>
                 
                 {/* Fixed Xental title - always visible */}
