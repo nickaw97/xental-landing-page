@@ -23,14 +23,17 @@ function LandingPage() {
   const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   useEffect(() => {
-    setIsVisible(true);
+    // Delay initial visibility to allow loading screen to complete
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 2200); // Slightly after loading screen (2s + 0.2s buffer)
 
     // Simplified hero text animation with better timing
     if (heroRef.current) {
       // Set initial visibility
       const elements = heroRef.current.querySelectorAll('.hero-text');
       
-      const timeline = gsap.timeline({ delay: 0.3 });
+      const timeline = gsap.timeline({ delay: 2.5 }); // Delay animations until after loading
       timeline
         .from(elements, {
           y: 20,
@@ -163,10 +166,10 @@ function LandingPage() {
               <div className="mb-8">
                 <motion.div
                   className="flex items-center justify-center mb-4"
-                  initial={{ scale: 0.8, opacity: 0 }}
+                  initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{
-                    delay: 0.3,
+                    delay: 2.3, // After loading screen completes
                     duration: 0.6,
                     ease: 'easeOut',
                   }}

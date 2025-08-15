@@ -7,7 +7,7 @@ export const LoadingScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Reduced to 1 second for even faster load
+    }, 2000); // Increased to 2 seconds for smooth, complete animation
 
     return () => clearTimeout(timer);
   }, []);
@@ -19,7 +19,7 @@ export const LoadingScreen: React.FC = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }} // Smoother, longer fade out
         >
           <div className="relative">
             {/* Logo animation */}
@@ -28,9 +28,10 @@ export const LoadingScreen: React.FC = () => {
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
-                duration: 1,                type: 'spring',
-                stiffness: 260,
-                damping: 20,
+                duration: 1.2,
+                type: 'spring',
+                stiffness: 200,
+                damping: 15,
               }}
             >
               <img
