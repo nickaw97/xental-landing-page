@@ -27,15 +27,20 @@ function LandingPage() {
 
     // Simplified hero text animation with better timing
     if (heroRef.current) {
-      const timeline = gsap.timeline({ delay: 0.5 }); // Add initial delay
+      // Set initial visibility
+      const elements = heroRef.current.querySelectorAll('.hero-text');
+      
+      const timeline = gsap.timeline({ delay: 0.3 });
       timeline
-        .from(heroRef.current.querySelectorAll('.hero-text'), {
-          y: 30,
+        .from(elements, {
+          y: 20,
           opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 0.6,
+          stagger: 0.1,
           ease: 'power2.out',
-        });    }
+          clearProps: 'all' // Clears all inline styles after animation
+        });
+    }
   }, []);
 
   const EmailForm = ({ buttonText = "Join the Waitlist", className = "" }: { buttonText?: string; className?: string }) => {
@@ -80,11 +85,8 @@ function LandingPage() {
     };
 
     return (
-      <motion.div 
+      <div 
         className={`max-w-md mx-auto ${className}`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
       >
         {!isSubmitted ? (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -131,7 +133,7 @@ function LandingPage() {
             <span>{error}</span>
           </motion.div>
         )}
-      </motion.div>
+      </div>
     );
   };
 
@@ -177,47 +179,36 @@ function LandingPage() {
                   />                </motion.div>
                 
                 {/* Fixed Xental title - always visible */}
-                <motion.h1 
-                  className="hero-text text-6xl md:text-8xl font-bold mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
+                <h1 
+                  className="text-6xl md:text-8xl font-bold mb-4"
+                  style={{ opacity: 1 }}
                 >
                   <span className="text-teal-400">
                     Xental
                   </span>
-                </motion.h1>
+                </h1>
                 <motion.div 
                   className="w-24 h-1 bg-gradient-to-r from-teal-500 to-purple-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: 96 }}
-                  transition={{ delay: 0.8, duration: 0.6 }}
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: 96, opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
                 />
               </div>
 
               {/* Main Headline */}
-              <motion.div 
-                className="hero-text mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
-              >
+              <div className="mb-6">
                 <h2 className="text-3xl md:text-5xl font-bold mb-2">
                   Unlocking the Future of
                 </h2>
-                <h2 className="text-4xl md:text-6xl font-bold text-teal-400">                  Dental Data
+                <h2 className="text-4xl md:text-6xl font-bold text-teal-400">
+                  Dental Data
                 </h2>
-              </motion.div>
+              </div>
 
               {/* Subheadline */}
-              <motion.p
-                className="hero-text text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.8 }}
-              >
+              <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
                 Xental is redefining how dental practices understand, manage, and use patient data with cutting-edge AI and universal interoperability.
-              </motion.p>
+              </p>
 
               {/* Email Capture Form - with proper delay and visibility */}
               <EmailForm className="mb-8" />
