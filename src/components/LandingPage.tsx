@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Zap, Link2, BarChart3, Brain, CheckCircle, AlertCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { Mail, Zap, Link2, BarChart3, Brain, CheckCircle, AlertCircle, ArrowRight, Sparkles, MessageSquare, Shield, BookOpen, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -237,7 +237,183 @@ function LandingPage() {
             </div>
           </motion.section>
 
-          {/* About/Teaser Section */}
+          {/* Phase I: Xental Chat Section */}
+          <section className="py-20 px-4 relative bg-gradient-to-b from-black via-gray-900/20 to-black">
+            <div className="max-w-6xl mx-auto relative z-10">
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+              >
+                <motion.div
+                  className="inline-block px-4 py-2 bg-teal-500/10 border border-teal-500/30 rounded-full mb-6"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                >
+                  <span className="text-teal-400 font-semibold text-sm uppercase tracking-wider">Phase I - Available Now</span>
+                </motion.div>
+                
+                <h3 className="text-4xl md:text-5xl font-bold mb-6">
+                  Introducing <span className="text-teal-400">Xental Chat</span>
+                </h3>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Your AI-powered dental assistant. HIPAA-compliant, evidence-based, and ready to answer any dental question instantly.
+                </p>
+              </motion.div>
+
+              {/* Chat Interface Mockup */}
+              <motion.div
+                className="max-w-4xl mx-auto mb-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <div className="rounded-2xl overflow-hidden border border-gray-800 bg-gray-900/50 backdrop-blur-sm shadow-2xl">
+                  {/* Chat Header */}
+                  <div className="bg-gray-900/80 border-b border-gray-800 p-4 flex items-center gap-3">
+                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center">
+                      <MessageSquare className="w-5 h-5 text-black" />
+                    </div>
+                    <span className="font-semibold text-white">Xental Chat</span>
+                    <div className="ml-auto flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+                      <span className="text-xs text-gray-400">Online</span>
+                    </div>
+                  </div>
+                  
+                  {/* Chat Messages */}
+                  <div className="p-6 space-y-4 min-h-[300px]">
+                    <motion.div
+                      className="flex gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs font-bold text-black">X</span>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-lg p-4 max-w-md">
+                        <p className="text-gray-200 text-sm">Hello! I'm Xental, your AI dental assistant. How can I help you today?</p>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div
+                      className="flex gap-3 justify-end"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.7 }}
+                    >
+                      <div className="bg-teal-500/20 rounded-lg p-4 max-w-md">
+                        <p className="text-gray-200 text-sm">What are the best practices for managing pediatric dental anxiety?</p>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div
+                      className="flex gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.9 }}
+                    >
+                      <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs font-bold text-black">X</span>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-lg p-4 max-w-md">
+                        <p className="text-gray-200 text-sm">Great question! Evidence-based strategies include tell-show-do technique, positive reinforcement, and creating a child-friendly environment...</p>
+                        <div className="flex gap-2 mt-3">
+                          <span className="text-xs px-2 py-1 bg-teal-500/10 text-teal-400 rounded">Evidence-Based</span>
+                          <span className="text-xs px-2 py-1 bg-purple-500/10 text-purple-400 rounded">Pediatric Dentistry</span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Chat Input */}
+                  <div className="border-t border-gray-800 p-4">
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Ask any dental question..."
+                        className="flex-1 bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-teal-500"
+                        disabled
+                      />
+                      <button className="px-4 py-3 bg-teal-500 rounded-lg hover:bg-teal-600 transition-colors">
+                        <Send className="w-5 h-5 text-black" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Features Grid */}
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-6 h-6 text-teal-400" />
+                  </div>
+                  <h4 className="font-semibold text-white mb-2">HIPAA Compliant</h4>
+                  <p className="text-gray-400 text-sm">Secure, encrypted, and fully compliant with healthcare regulations</p>
+                </motion.div>
+                
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-6 h-6 text-teal-400" />
+                  </div>
+                  <h4 className="font-semibold text-white mb-2">Evidence-Based</h4>
+                  <p className="text-gray-400 text-sm">Responses backed by peer-reviewed research and clinical guidelines</p>
+                </motion.div>
+                
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <div className="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-6 h-6 text-teal-400" />
+                  </div>
+                  <h4 className="font-semibold text-white mb-2">Instant Answers</h4>
+                  <p className="text-gray-400 text-sm">Get accurate dental information in seconds, 24/7</p>
+                </motion.div>
+              </div>
+
+              {/* CTA Button */}
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 }}
+              >
+                <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all transform hover:scale-105 inline-flex items-center gap-2">
+                  Try Xental Chat Now
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Phase II Section - Original About/Teaser Section */}
           <section className="py-20 px-4 relative">
             <div className="max-w-6xl mx-auto relative z-10">
               <motion.div
@@ -247,6 +423,16 @@ function LandingPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
               >
+                <motion.div
+                  className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                >
+                  <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">Phase II - Coming Soon</span>
+                </motion.div>
+                
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">
                   The Neural Backbone of{' '}
                   <span className="text-teal-400">Dental Intelligence</span>
