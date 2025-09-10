@@ -254,7 +254,7 @@ function LandingPage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
-                  <span className="text-teal-400 font-semibold text-sm uppercase tracking-wider">Phase I - Available Now</span>
+                  <span className="text-teal-400 font-semibold text-sm uppercase tracking-wider">Phase I - Coming Soon</span>
                 </motion.div>
                 
                 <h3 className="text-4xl md:text-5xl font-bold mb-6">
@@ -397,7 +397,7 @@ function LandingPage() {
                 </motion.div>
               </div>
 
-              {/* CTA Button */}
+              {/* Beta Access CTA */}
               <motion.div
                 className="text-center"
                 initial={{ opacity: 0 }}
@@ -405,10 +405,8 @@ function LandingPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
               >
-                <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all transform hover:scale-105 inline-flex items-center gap-2">
-                  Try Xental Chat Now
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <h4 className="text-xl font-semibold mb-4 text-white">Ready to try Xental Chat?</h4>
+                <EmailForm buttonText="Request Beta Access" />
               </motion.div>
             </div>
           </section>
@@ -430,7 +428,7 @@ function LandingPage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
-                  <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">Phase II - Coming Soon</span>
+                  <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">Phase II - Coming 2026</span>
                 </motion.div>
                 
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">
